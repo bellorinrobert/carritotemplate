@@ -1,4 +1,4 @@
-
+import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import "./carousel.css"
 
@@ -31,7 +31,7 @@ const CarouselStart = () => {
         {
             id: 3,
             img: 'img/carousel-1.jpg',
-            tagline: '#ers',
+            tagline: 'Producto 3 $200',
             title: 'On Selected Laptops & Desktop Or Smartphone',
             cta: 'Shop Now',
         },

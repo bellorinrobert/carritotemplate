@@ -1,4 +1,4 @@
-    export const  formatCurrency = (value) => {
+ export const  formatCurrency = (value) => {
         const numericValue = Number(value);
         if (isNaN(numericValue)) {
             return '0,00';

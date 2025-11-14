@@ -1,19 +1,26 @@
-import { useParams } from "react-router-dom"
-import ProductsOffer from "../components/ProductsOffer"
-import SinglePage from "../components/SinglePage"
-import Searvices from "./home/Searvices"
-import ShopPage from "./shop/ShopPage"
+import React from 'react'
+import SinglePage from '../components/SinglePage'
+import Searvices from '../components/Searvices'
+import ProductsOffer from '../components/ProductsOffer'
+import ShopPage from './shop/ShopPage'
+import { useParams } from 'react-router-dom'
+
 
 
 const Shop = () => {
-  const param = useParams()
+  
+   const pametros= useParams()
+   const id=pametros.id;
+   const titulo=pametros.titulo
+
   return (
     <>
-    <h1>{param.cate}</h1>
-    <SinglePage title={"Shop"} />
-    <Searvices />
-    <ProductsOffer />
-    <ShopPage cate={param.cate} />
+       
+        <SinglePage titulo={"Shop Page"}/>
+        <Searvices/>
+        <ProductsOffer/>
+        <ShopPage id={id} titulo={titulo}/>
+        
     </>
   )
 }

@@ -6,7 +6,7 @@ import { formatCurrency } from "../../util/funciones";
 
 const API = 'https://dummyjson.com/products/category/';
 
-const ProductCategory = ({category, title}) => {
+const ProductCategory2 = ({category, title}) => {
     const [datos, setDatos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -97,4 +97,4 @@ const ProductCategory = ({category, title}) => {
     )
 }
 
-export default ProductCategory
+export default ProductCategory2

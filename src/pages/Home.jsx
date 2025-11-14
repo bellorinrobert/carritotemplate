@@ -1,15 +1,16 @@
 import OurProducts from "../components/OurProducts"
 import ProductsOffer from "../components/ProductsOffer"
+import Searvices from "../components/Searvices"
 import CarouselStart from "./home/CarouselStart"
-import Searvices from "./home/Searvices"
+
 
 const Home = () => {
   return (
     <>
-     <CarouselStart />
-     <Searvices />
-     <ProductsOffer />
-     <OurProducts />
+        <CarouselStart/>
+        <Searvices/>
+        <ProductsOffer/>
+        <OurProducts/>
     </>
   )
 }
