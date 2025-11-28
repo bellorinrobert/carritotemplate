@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { formatCurrency } from "../../util/funciones";
+import { Link } from "react-router-dom";
 
 // import Cardprod from "../components/Cardprod";
 
@@ -59,7 +60,7 @@ const ProductCategory2 = ({category, title}) => {
                                     <img src={item.thumbnail} className="img-fluid w-100 rounded-top" alt />
                                     <div className="product-new">New</div>
                                     <div className="product-details">
-                                        <a href="#"><i className="fa fa-eye fa-1x" /></a>
+                                        <Link to={`/detalle/${item.id}`}><i className="fa fa-eye fa-1x" /></Link>
                                     </div>
                                 </div>
                                 <div className="text-center rounded-bottom p-4">

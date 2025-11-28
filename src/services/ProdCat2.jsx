@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { formatCurrency } from "../util/funciones";
+import { Link } from "react-router-dom";
 const API = 'https://dummyjson.com/products/category/';
 
 const ProdCat2 = ({id}) => {
@@ -53,7 +54,9 @@ const ProdCat2 = ({id}) => {
                       <div className="products-mini-img border-end h-100">
                         <img src={item.thumbnail} className="img-fluid w-100 h-100" alt="Image" />
                         <div className="products-mini-icon rounded-circle bg-primary">
-                          <a href="#"><i className="fa fa-eye fa-1x text-white" /></a>
+                          {/* <Link href="#"><i className="fa fa-eye fa-1x text-white" /></Link> */}
+                          {/* <Link to={`/detalle/${item.id}`}><i className="fa fa-eye fa-1x" /></Link> */}\
+                          <Link to={`/detalle/${item.id}/${item.title}`}><i className="fa fa-eye fa-1x" /></Link>
                         </div>
                       </div>
                     </div>

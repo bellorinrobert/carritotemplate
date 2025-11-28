@@ -71,7 +71,8 @@ const Navbar = () => {
                 <Link to={"/error404"} href="404.html" className="dropdown-item">404 Page</Link>
               </div>
             </div>
-            <a href="contact.html" className="nav-item nav-link me-2">Contact</a>
+            <Link to={"/contact"} className="nav-item nav-link">Contact</Link>
+            <Link to={"/checkout"} className="nav-item nav-link">Checkout</Link>
             <div className="nav-item dropdown d-block d-lg-none mb-3">
               <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">All Category</a>
               <div className="dropdown-menu m-0">

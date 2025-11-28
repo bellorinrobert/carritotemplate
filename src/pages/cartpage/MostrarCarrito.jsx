@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useCarrito } from "../../context/CarritoContext";
 import { formatCurrency } from "../../util/funciones";
 import Swal from 'sweetalert2';
+import { Link } from "react-router-dom";
 
 const MostrarCarrito = () => {
        const { carrito, eliminarDelCarrito, actualizarCantidad, vaciarCarrito, enviarPedido } = useCarrito();
@@ -150,7 +151,8 @@ const MostrarCarrito = () => {
                         <h5 className="mb-0 ps-4 me-4">Total</h5>
                         <p className="mb-0 pe-4">${formatCurrency(total)}</p>
                     </div>
-                    <button className="btn btn-primary rounded-pill px-4 py-3 text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button>
+                    {/* <button className="btn btn-primary rounded-pill px-4 py-3 text-uppercase mb-4 ms-4" type="button">Proceed Checkout</button> */}
+                    <Link to={"/checkout"} className="btn btn-primary rounded-pill px-4 py-3 text-uppercase mb-4 ms-4">Proceed Checkout</Link>
                     </div>
                 </div>
                 </div>

@@ -1,68 +1,13 @@
-import { useEffect, useState } from "react";
-import { formatCurrency } from "../util/funciones";
-import { useCarrito } from "../context/CarritoContext";
 import { Link } from "react-router-dom";
-const API = 'https://dummyjson.com/products/category/';
-
-const ProdCat = ({id}) => {
-
-    const { carrito, agregarAlCarrito  } = useCarrito();
+import { useCarrito } from "../../context/CarritoContext";
+import { formatCurrency } from "../../util/funciones";
 
 
-
-    const [datos, setDatos] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const URI=API+id
-    const getDatos = async () => {
-        try {
-            const response = await fetch(URI);
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const data = await response.json();
-            setDatos(data.products);
-            setLoading(false);
-        } catch (err) {
-            setError(err.message);
-            setLoading(false);
-        }
-    };
-
-
-   // const enCarrito = carrito.find(producto => producto.id === item.id);
-
-
-    useEffect(() => {
-        getDatos();
-    }, [id]);
-    
-    if (loading) {
-        return (
-            <div className="text-center py-5">
-                <div className="spinner-border text-primary" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
-                <p>Cargando Personajes...</p>
-            </div>
-        );
-    }
-    if (error) {
-        return (
-            <div className="text-center py-5 text-danger">
-                <h4>Error al cargar los Personajes</h4>
-                <p>{error}</p>
-            </div>
-        );
-    }
+const CardProduct1 = ({item}) => {
+     const { carrito, agregarAlCarrito  } = useCarrito();
+     const enCarrito = carrito.find(producto => producto.id === item.id);
   return (
-    <>
-        {datos.map((item)=>{
-          const enCarrito = carrito.find(producto => producto.id === item.id);
-          
-          return(
-
-            <div className="col-lg-4">
+               <div className="col-lg-4">
                 <div className="product-item rounded wow animate__animated animate__sfadeInUp" data-wow-delay="0.1s">
                   <div className="product-item-inner border rounded">
 
@@ -74,7 +19,7 @@ const ProdCat = ({id}) => {
                         )}
                     
                       <div className="product-details">
-                        <Link to={`/detalle/${item.id}/${item.title}`}><i className="fa fa-eye fa-1x" /></Link>
+                        <Link to={`/detalle/${item.id}/${item.title}`} href="#"><i className="fa fa-eye fa-1x" /></Link>
                       </div>
                     </div>
                     <div className="text-center rounded-bottom p-4">
@@ -106,11 +51,7 @@ const ProdCat = ({id}) => {
                   </div>
                 </div>
             </div>
-    
-      )})}
-    
-    </>
   )
 }
 
-export default ProdCat
+export default CardProduct1

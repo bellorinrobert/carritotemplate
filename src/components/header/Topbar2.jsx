@@ -1,12 +1,34 @@
 import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useCarrito } from "../../context/CarritoContext";
 import { formatCurrency } from "../../util/funciones";
-import { Link } from "react-router-dom";
 
 
 const Topbar2 = () => {
   const { carrito } = useCarrito();
   const [total, setTotal] = useState(0);
+    const [searchTerm, setSearchTerm] = useState("");
+
+  // Hooks de navegación y ubicación (React Router)
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // Maneja el envío del formulario de búsqueda
+  const handleSearch = (e) => {
+    alert('Buscando')
+    e.preventDefault();
+    const query = searchTerm.trim();
+    if (query) {
+      // Permanece en la misma ruta pero envía el término como estado
+      navigate(".", { replace: true, state: { query } });
+      setSearchTerm(""); // Limpia el campo después de buscar
+    }
+  };
+
+  // Extrae el término de búsqueda del estado de la navegación
+  const txtBuscar = location.state?.query?.trim() || "";
+  const enModoBusqueda = Boolean(txtBuscar); // true si hay búsqueda activa
+
 
     // Calcular total cada vez que cambia el carrito
   useEffect(() => {
@@ -28,6 +50,19 @@ const Topbar2 = () => {
     <div className="col-md-4 col-lg-6 text-center">
       <div className="position-relative ps-4">
         <div className="d-flex border rounded-pill">
+          <form className="input-group w-100 mx-auto d-flex" onSubmit={handleSearch}>
+                    <input
+                      type="search"
+                      className="form-control p-3"
+                      placeholder="keywords"
+                      aria-describedby="search-icon-1"
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                    <button type="submit" id="search-icon-1" className="input-group-text p-3"><i className="fa fa-search" /></button>
+                    {/* <input type="search" className="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1" /> */}
+                    {/* <span id="search-icon-1" className="input-group-text p-3"><i className="fa fa-search" /></span> */}
+                  </form>
           <input className="form-control border-0 rounded-pill w-100 py-3" type="text" data-bs-target="#dropdownToggle123" placeholder="Search Looking For?" />
           <select className="form-select text-dark border-0 border-start rounded-0 p-3" style={{width: 200}}>
             <option value="All Category">All Category</option>

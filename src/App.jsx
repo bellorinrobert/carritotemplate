@@ -9,6 +9,9 @@ import Error404 from './pages/Error404'
 import 'animate.css';
 import WOW from 'wow.js';
 import CartPage from './pages/CartPage'
+import Detalle from './pages/detalle'
+import ContacPage from './pages/contact/ContacPage'
+import CheackoutPage from './pages/checkout/CheackoutPage'
 
 const App = () => {
    // inicializar WOW.js para las animaciones
@@ -27,6 +30,9 @@ const App = () => {
           <Route path='/home' element={<Home/>}/>
           <Route path='/cartpage' element={<CartPage/>}/>
           <Route path='/shop/:id/:titulo' element={<Shop/>}/>
+          <Route path='/detalle/:id/:titulo' element={<Detalle />}/>
+          <Route path='/contact' element={<ContacPage/>}/>
+          <Route path='/checkout' element={<CheackoutPage />}/>
 
           <Route path='/error404' element={<Error404/>}/>
           <Route path='*' element={<Error404/>}/>
