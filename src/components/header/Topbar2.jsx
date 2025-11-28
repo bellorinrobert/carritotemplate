@@ -5,9 +5,7 @@ import { formatCurrency } from "../../util/funciones";
 
 
 const Topbar2 = () => {
-  const { carrito } = useCarrito();
-  const [total, setTotal] = useState(0);
-    const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Hooks de navegación y ubicación (React Router)
   const navigate = useNavigate();
@@ -15,7 +13,7 @@ const Topbar2 = () => {
 
   // Maneja el envío del formulario de búsqueda
   const handleSearch = (e) => {
-    alert('Buscando')
+    // alert('Buscando')
     e.preventDefault();
     const query = searchTerm.trim();
     if (query) {
@@ -29,6 +27,9 @@ const Topbar2 = () => {
   const txtBuscar = location.state?.query?.trim() || "";
   const enModoBusqueda = Boolean(txtBuscar); // true si hay búsqueda activa
 
+  const { carrito } = useCarrito();
+  const [total, setTotal] = useState(0);
+  
 
     // Calcular total cada vez que cambia el carrito
   useEffect(() => {
@@ -59,19 +60,20 @@ const Topbar2 = () => {
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <button type="submit" id="search-icon-1" className="input-group-text p-3"><i className="fa fa-search" /></button>
+                    {/* <button type="submit" id="search-icon-1" className="input-group-text p-3"><i className="fa fa-search" /></button> */}
                     {/* <input type="search" className="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1" /> */}
                     {/* <span id="search-icon-1" className="input-group-text p-3"><i className="fa fa-search" /></span> */}
-                  </form>
-          <input className="form-control border-0 rounded-pill w-100 py-3" type="text" data-bs-target="#dropdownToggle123" placeholder="Search Looking For?" />
+          {/* <input className="form-control border-0 rounded-pill w-100 py-3" type="text" data-bs-target="#dropdownToggle123" placeholder="Search Looking For?" />
           <select className="form-select text-dark border-0 border-start rounded-0 p-3" style={{width: 200}}>
-            <option value="All Category">All Category</option>
-            <option value="Pest Control-2">Category 1</option>
-            <option value="Pest Control-3">Category 2</option>
-            <option value="Pest Control-4">Category 3</option>
-            <option value="Pest Control-5">Category 4</option>
-          </select>
-          <button type="button" className="btn btn-primary rounded-pill py-3 px-5" style={{border: 0}}><i className="fas fa-search" /></button>
+          <option value="All Category">All Category</option>
+          <option value="Pest Control-2">Category 1</option>
+          <option value="Pest Control-3">Category 2</option>
+          <option value="Pest Control-4">Category 3</option>
+          <option value="Pest Control-5">Category 4</option>
+          </select> */}
+          <button type="submit" id="search-icon-1" className="input-group-text p-3"><i className="fa fa-search" /></button>
+          {/* <button type="button" className="btn btn-primary rounded-pill py-3 px-5" style={{border: 0}}><i className="fas fa-search" /></button> */}
+          </form>
         </div>
       </div>
     </div>
